@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="login-card-footer">
-                    Hesabınız var mı? <a href="#"> Giriş Yapın</a>.
+                    Hesabınız var mı? <a href="#"  onclick="window.location.href='https://cihatkarayeell.github.io/login-page'"> Giriş Yapın</a>.
                 </div>
                 <div class="button">
                     <input type="submit" value="Register">
@@ -85,7 +85,7 @@
             if (response.ok) {
                  window.location.href = 'https://cihatkarayeell.github.io/login-page';
             } else {
-                throw new Error('İstek başarısız!');
+                throw new Error('Zaten bu mail adresi kayıtlı');
             }
         } catch (error) {
             alert(error.message);
