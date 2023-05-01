@@ -15,16 +15,16 @@
             <form action="#">
                 <div class="user-details">
                     <div class="input-box">
-                        <input type="text" placeholder="Enter your name" required>
+                        <input type="text" placeholder="Enter your name" name="name" required>
                     </div>
                     <div class="input-box">
-                        <input type="text" placeholder="Enter your Surname" required>
+                        <input type="text" placeholder="Enter your surname" name="surname" required>
                     </div>
                     <div class="input-box">
-                        <input type="text" placeholder="Enter your email" required>
+                        <input type="email" placeholder="Enter your email" name="email" required>
                     </div>
                     <div class="input-box">
-                        <input type="text" placeholder="Enter your password" required>
+                        <input type="password" placeholder="Enter your password" name="password" required>
                     </div>
                 </div>
                 <div class="login-card-footer">
@@ -60,6 +60,38 @@
             </form>
         </div>
     </div>
+<script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const name = form.querySelector('input[name="name"]').value;
+        const surname = form.querySelector('input[name="surname"]').value;
+        const email = form.querySelector('input[name="email"]').value;
+        const password = form.querySelector('input[name="password"]').value;
+
+        try {
+            const response = await fetch('https://caffinity.herokuapp.com/api/v1/user/signUp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name,
+                    surname,
+                    email,
+                    password
+                })
+            });
+            if (response.ok) {
+                console.log('Başarılı');
+            } else {
+                throw new Error('İstek başarısız!');
+            }
+        } catch (error) {
+            alert(error.message);
+        }
+    });
+</script>
 
 </body>
 
