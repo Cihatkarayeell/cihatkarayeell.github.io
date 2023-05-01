@@ -21,7 +21,7 @@
 	<script>
 		const salon = document.getElementById("salon");
 
-		for (let i = 1; i <= 10; i++) {
+		for (let i = 1; i <= 30; i++) {
 			const masa = document.createElement("div");
 			masa.classList.add("masa");
 			masa.innerHTML = `<p>M ${i}</p>`;
@@ -32,124 +32,20 @@
 		}
 	</script>
 
-    <div id="bahçe" class="bahçe-masalar">
-        <!-- Masa 1-10 -->
-		<div class="masa">
-			<p>M 1</p>
-		</div>
-		<div class="masa">
-			<p>M 2</p>
-		</div>
-		<div class="masa">
-			<p>M 3</p>
-		</div>
-		<div class="masa">
-			<p>M 4</p>
-		</div>
-		<div class="masa">
-			<p>M 5</p>
-		</div>
-		<div class="masa">
-			<p>M 6</p>
-		</div>
-		<div class="masa">
-			<p>M 7</p>
-		</div>
-		<div class="masa">
-			<p>M 8</p>
-		</div>
-		<div class="masa">
-			<p>M 9</p>
-		</div>
-        <div class="masa">
-			<p>M 10</p>
-		</div>
-		
-		<!-- Masa 11-20 -->
-		<div class="masa">
-			<p>M 11</p>
-		</div>
-		<div class="masa">
-			<p>M 12</p>
-		</div>
-		<div class="masa">
-			<p>M 13</p>
-		</div>
-		<div class="masa">
-			<p>M 14</p>
-		</div>
-		<div class="masa">
-			<p>M 15</p>
-		</div>
-		<div class="masa">
-			<p>M 16</p>
-		</div>
-		<div class="masa">
-			<p>M 17</p>
-		</div>
-		<div class="masa">
-			<p>M 18</p>
-		</div>
-        <div class="masa">
-			<p>M 19</p>
-		</div>
-		<div class="masa">
-			<p>M 20</p>
-		</div>
-		
-		<!-- Masa 21-30 -->
-		<div class="masa">
-			<p>M 21</p>
-		</div>
-		<div class="masa">
-			<p>M 22</p>
-		</div>
-		<div class="masa">
-			<p>M 23</p>
-		</div>
-        <div class="masa">
-			<p>M 24</p>
-		</div>
-		<div class="masa">
-			<p>M 25</p>
-		</div>
-		<div class="masa">
-			<p>M 26</p>
-		</div>
-        <div class="masa">
-			<p>M 27</p>
-		</div>
-		<div class="masa">
-			<p>M 27</p>
-		</div>
-		<div class="masa">
-			<p>M 29</p>
-		</div>
-        <div class="masa">
-			<p>M 30</p>
-		</div>
-		<div class="masa">
-			<p>M 31</p>
-		</div>
-		<div class="masa">
-			<p>M 32</p>
-		</div>
-        <div class="masa">
-			<p>M 33</p>
-		</div>
-		<div class="masa">
-			<p>M 34</p>
-		</div>
-		<div class="masa">
-			<p>M 35</p>
-		</div>
-        <div class="masa">
-			<p>M 36</p>
-		</div>
-		
-		
-		
-	</div>
+	<div id="bahçe" class="bahçe-masalar"></div>
+	<script>
+		const bahce = document.getElementById("bahçe");
+
+		for (let i = 1; i <= 30; i++) {
+			const masa = document.createElement("div");
+			masa.classList.add("masa");
+			masa.innerHTML = `<p>M ${i}</p>`;
+			masa.addEventListener("click", () => {
+				console.log(`Tıklanan masa numarası: ${i}`);
+			});
+			salon.appendChild(masa);
+		}
+	</script>
 
     
 </body>
