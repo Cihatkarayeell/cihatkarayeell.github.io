@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Müşteri Siparişleri</title>
+</head>
+
+<body>
+    <h1>Müşteri Siparişleri</h1>
+    <table>
+        <tr>
+            <th>Sipariş No</th>
+            <th>Müşteri Adı</th>
+            <th>Sipariş Tarihi</th>
+            <th>Ürün</th>
+            <th>Fiyat</th>
+        </tr>
+        <% for(var i=0; i<orders.length; i++) { %>
+            <tr>
+                <td>
+                    <%= orders[i].id %>
+                </td>
+                <td>
+                    <%= orders[i].customerName %>
+                </td>
+                <td>
+                    <%= orders[i].orderDate %>
+                </td>
+                <td>
+                    <%= orders[i].product %>
+                </td>
+                <td>
+                    <%= orders[i].price %>
+                </td>
+            </tr>
+            <% } %>
+    </table>
+</body>
+
+</html>

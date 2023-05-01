@@ -1,0 +1,143 @@
+body{
+    padding: 0;
+    margin:0;
+    background-color: #334F70;
+    width: 100%;
+    height: 100vh;
+}
+article{
+    display: flex;
+    justify-content: center;
+    
+}
+.baslik{
+    width: 500px;
+    height: 80px;
+    background-color: transparent;
+    border-radius: 35px;
+    margin-top:1%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.baslik a{
+    background-color:transparent;
+    color:white;
+    font-size: x-large;
+    border-radius: 30px;
+    border:2px solid white;
+    padding: 4% 10%;
+    margin:10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 500ms;
+    width: 100%;
+    text-align: center;
+}
+.baslik a:first-child:hover{
+    transform: translateX(15px);
+}
+.baslik a:last-child:hover{
+    transform: translateX(-15px);
+}
+.salon-masalar {
+	display: none;
+	flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 2% 3%;
+}
+.masa {
+	border: 2px solid white;
+    border-radius: 10px;
+	width: 150px;
+	height: 150px;
+	margin: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 44px;
+	font-weight: 300;
+    font-family: 'Poppins-bold', sans-serif;
+	cursor: pointer;
+    color:white
+}
+
+.salon-masalar .masa:hover {
+	background-color: #ddd;
+    transition: 200ms;
+    color:black;
+
+}
+.bahçe-masalar .masa:hover {
+	background-color: transparent;
+    color:black;
+    border: 2px solid black;
+    transition: 200ms;
+}
+.bahçe-masalar {
+	display: none;
+	flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 2% 3%;
+    display: none;
+    transition: all .90s 2000ms;
+}
+.bahçe-masalar .masa{
+    background-color: #ddd;
+    color:black;
+}
+#bahçe:target{
+    display: flex;
+}
+#bahçe:target #salon{
+    display: none;
+}
+#salon:target{
+    display: flex;
+    transition: 1s;
+}
+#salon:target body{
+    background-color: black;
+    }
+@media screen and (max-width:500px){
+    .salon-masalar {
+	display: flex;
+	flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    display: none;
+}
+.masa {
+	border: 2px solid white;
+    border-radius: 10px;
+	width: 100%;
+	height: 150px;
+    display: flex;
+	align-items: center;
+	justify-content: space-around;
+	font-size: 24px;
+	font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+	cursor: pointer;
+    color:white
+}
+}
+@media screen and (max-width:570px){
+    .masa {
+	border: 2px solid white;
+    border-radius: 10px;
+	width: 100%;
+    display: flex;
+	height: 150px;
+    display: flex;
+	align-items: center;
+	justify-content: space-around;
+	font-size: 24px;
+	font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+	cursor: pointer;
+    color:white
+}
+}
