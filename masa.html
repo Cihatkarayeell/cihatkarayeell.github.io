@@ -27,7 +27,7 @@
 			masa.innerHTML = `<p>M ${i}</p>`;
 			masa.addEventListener("click", () => {
 				console.log(`Tıklanan masa: Salon M ${i}`);
-				header.textContent = `Salon M${i}`;
+				localStorage.setItem("selectedMasa", i); // seçilen masanın numarasını kaydet
 				window.location.href = "https://cihatkarayeell.github.io/order-page";
 			});
 			salon.appendChild(masa);

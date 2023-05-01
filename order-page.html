@@ -15,20 +15,23 @@
         <header>
             <div class="logo">
                 <span>Coffenity</span>
-            </div> 
-
-            <div id="header" class="header-text">
+            </div>
+        
+            <div class="header-text">
                 <h2 id="masa-adi"></h2>
                 <p>Dilediğin her şey burada</p>
             </div>
-        
-            <!-- <div class="search">
-                
-                <input type="text" >
-                <button><span class="material-symbols-outlined">
-                    filter_alt</span></button>
-            </div> -->
         </header>
+
+        <script>
+            const selectedMasa = localStorage.getItem("selectedMasa"); // kaydedilmiş masa numarasını al
+            const masaAdi = document.getElementById("masa-adi");
+            if (selectedMasa) {
+                masaAdi.textContent = `Salon M${selectedMasa}`; // seçilen masanın numarasını h2 etiketi içinde göster
+                localStorage.removeItem("selectedMasa"); // kaydedilen masa numarasını sil
+            }
+        </script>
+
         <div class="alt-bolum">
             <div class="sol-sutun">
                 <div class="left-menu">
