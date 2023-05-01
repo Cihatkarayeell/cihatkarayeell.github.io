@@ -27,7 +27,7 @@
 			masa.innerHTML = `<p>M ${i}</p>`;
 			masa.addEventListener("click", () => {
 				console.log(`Tıklanan masa: Salon M ${i}`);
-				localStorage.setItem("selectedMasa", i); // seçilen masanın numarasını kaydet
+				localStorage.setItem("selectedMasa", `Salon M${i}`); // seçilen masanın numarasını kaydet
 				window.location.href = "https://cihatkarayeell.github.io/order-page";
 			});
 			salon.appendChild(masa);
@@ -43,6 +43,8 @@
 				masa.className = "masa";
 				masa.addEventListener("click", function () {
 					console.log("Tıklanan masa: Bahçe " + this.innerText);
+					localStorage.setItem("selectedMasa", `Bahçe M${i}`); // seçilen masanın numarasını kaydet
+					window.location.href = "https://cihatkarayeell.github.io/order-page";
 				});
 				var masaNumarasi = document.createElement("p");
 				masaNumarasi.innerText = "M " + i;
