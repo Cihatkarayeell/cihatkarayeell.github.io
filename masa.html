@@ -38,18 +38,16 @@
 		<!-- Masa 1-10 -->
 		<script>
 			var bahceMasalar = document.getElementById("bahçe");
-			for (var i = 1; i <= 10; i++) {
-				var masa = document.createElement("div");
-				masa.className = "masa";
-				masa.addEventListener("click", function () {
-					console.log("Tıklanan masa: Bahçe " + this.innerText);
-					localStorage.setItem("selectedMasa", `Bahçe M${i}`); // seçilen masanın numarasını kaydet
+			for (let i = 1; i <= 10; i++) {
+				const masa = document.createElement("div");
+				masa.classList.add("masa");
+				masa.innerHTML = `<p>M ${i}</p>`;
+				masa.addEventListener("click", () => {
+					console.log(`Tıklanan masa: Salon M ${i}`);
+					localStorage.setItem("selectedMasa", `Salon M${i}`); // seçilen masanın numarasını kaydet
 					window.location.href = "https://cihatkarayeell.github.io/order-page";
 				});
-				var masaNumarasi = document.createElement("p");
-				masaNumarasi.innerText = "M " + i;
 				masa.appendChild(masaNumarasi);
-				bahceMasalar.appendChild(masa);
 			}
 		</script>
 	</div>
