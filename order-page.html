@@ -27,7 +27,7 @@
             const selectedMasa = localStorage.getItem("selectedMasa"); // kaydedilmiş masa numarasını al
             const masaAdi = document.getElementById("masa-adi");
             if (selectedMasa) {
-                masaAdi.textContent = `Salon M${selectedMasa}`; // seçilen masanın numarasını h2 etiketi içinde göster
+                masaAdi.textContent = `${selectedMasa}`; // seçilen masanın numarasını h2 etiketi içinde göster
                 localStorage.removeItem("selectedMasa"); // kaydedilen masa numarasını sil
             }
         </script>

@@ -37,18 +37,19 @@
     <div id="bahçe" class="bahçe-masalar">
 		<!-- Masa 1-10 -->
 		<script>
-			var bahceMasalar = document.getElementById("bahçe");
-			for (let i = 1; i <= 10; i++) {
-				const masa = document.createElement("div");
-				masa.classList.add("masa");
-				masa.innerHTML = `<p>M ${i}</p>`;
-				masa.addEventListener("click", () => {
-					console.log(`Tıklanan masa: Salon M ${i}`);
-					localStorage.setItem("selectedMasa", `Salon M${i}`); // seçilen masanın numarasını kaydet
-					window.location.href = "https://cihatkarayeell.github.io/order-page";
-				});
-				masa.appendChild(masaNumarasi);
-			}
+			const bahce = document.getElementById("bahçe");
+
+				for (let i = 1; i <= 30; i++) {
+					const masa = document.createElement("div");
+					masa.classList.add("masa");
+					masa.innerHTML = `<p>M ${i}</p>`;
+					masa.addEventListener("click", () => {
+						console.log(`Tıklanan masa: Bahçe M ${i}`);
+						localStorage.setItem("selectedMasa", `Bahçe M${i}`); // seçilen masanın numarasını kaydet
+						window.location.href = "https://cihatkarayeell.github.io/order-page";
+					});
+					salon.appendChild(masa);
+				}
 		</script>
 	</div>
 
