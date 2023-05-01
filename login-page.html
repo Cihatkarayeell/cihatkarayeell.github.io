@@ -16,7 +16,7 @@
                 <h1>Giriş Yap</h1>
                 <div>Platformu Kullanmak İçin Lütfen Giriş Yapın</div>
             </div>
-            <form class="login-card-form" action="https://caffinity.herokuapp.com/api/v1/user/signIn" method="POST">
+            <form id="login-form" class="login-card-form">
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-outlined">mail</span>
                     <input type="text" name="email" placeholder="E-Mail" required autofocus>
@@ -61,5 +61,32 @@
             </div>
         </div>
     </div>
+
+    <script>const form = document.querySelector('#login-form');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const email = form.querySelector('input[type="text"]').value;
+            const password = form.querySelector('input[type="password"]').value;
+
+            fetch('https://caffinity.herokuapp.com/api/v1/user/signIn', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            })
+                .then(response => {
+                    console.log('Giriş yapıldı!');
+                })
+                .catch(error => {
+                    console.error('Bir hata oluştu: ', error);
+                });
+        });
+</script>
 </body>
 </html>
