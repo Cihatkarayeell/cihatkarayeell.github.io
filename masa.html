@@ -32,20 +32,23 @@
 		}
 	</script>
 
-	<div id="bahçe" class="bahçe-masalar"></div>
-	<script>
-		const bahce = document.getElementById("bahçe");
-
-		for (let i = 1; i <= 30; i++) {
-			const masa = document.createElement("div");
-			masa.classList.add("masa");
-			masa.innerHTML = `<p>M ${i}</p>`;
-			masa.addEventListener("click", () => {
-				console.log(`Tıklanan masa numarası: ${i}`);
-			});
-			salon.appendChild(masa);
-		}
-	</script>
+    <div id="bahçe" class="bahçe-masalar">
+		<!-- Masa 1-10 -->
+		<script>
+			var bahceMasalar = document.getElementById("bahçe");
+			for (var i = 1; i <= 10; i++) {
+				var masa = document.createElement("div");
+				masa.className = "masa";
+				masa.addEventListener("click", function () {
+					console.log("Tıklanan masa: " + this.innerText);
+				});
+				var masaNumarasi = document.createElement("p");
+				masaNumarasi.innerText = "M " + i;
+				masa.appendChild(masaNumarasi);
+				bahceMasalar.appendChild(masa);
+			}
+		</script>
+	</div>
 
     
 </body>
