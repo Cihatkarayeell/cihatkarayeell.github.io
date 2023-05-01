@@ -16,15 +16,16 @@
                 <h1>Giriş Yap</h1>
                 <div>Platformu Kullanmak İçin Lütfen Giriş Yapın</div>
             </div>
-            <form class="login-card-form">
+            <form class="login-card-form" action="https://caffinity.herokuapp.com/api/v1/user/signIn" method="POST">
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-outlined">mail</span>
-                    <input type="text" placeholder="E-Mail" required autofocus>
+                    <input type="text" name="email" placeholder="E-Mail" required autofocus>
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-outlined">lock</span>
-                    <input type="password" placeholder="Şifre" required>
+                    <input type="password" name="password" placeholder="Şifre" required>
                 </div>
+
                 <div class="form-item-other">
                     <div class="checkbox">
                         <input type="checkbox" id="rememberMeCheckbox">
