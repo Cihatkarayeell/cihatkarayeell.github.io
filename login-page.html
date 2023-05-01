@@ -87,27 +87,16 @@
             };
 
             fetch("https://caffinity.herokuapp.com/api/v1/user/signIn", requestOptions)
-                .then(response => response.text())
-                .then(result => console.log(result))
+                .then(response => response.json())
+                .then(result => {
+                    console.log(result);
+                    if (result.success) {
+                        window.location.href = "https://cihatkarayeell.github.io/dashboard";
+                    }
+                })
                 .catch(error => console.log('error', error));
 
 
-            // fetch('https://caffinity.herokuapp.com/api/v1/user/signIn', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify({
-            //         email: email,
-            //         password: password
-            //     })
-            // })
-            //     .then(response => {
-            //         console.log(response);
-            //     })
-            //     .catch(error => {
-                //     console.error('Bir hata oluştu: ', error);
-                // });
         });
 </script>
 </body>
