@@ -124,9 +124,9 @@
             kaydetButton.addEventListener('click', () => {
                     const items = [];
                     selectedProducts.forEach((product) => {
-                        const product = product.querySelector('h2').textContent;
+                        const name = product.querySelector('h2').textContent;
                         const price = product.querySelector('span').textContent;
-                        items.push({ product: product, price: price, quentity: 1 });
+                        items.push({ product: name, price: price, quentity: 1 });
                     });
 
                     console.log(items); // items dizisini konsolda görebilirsiniz
