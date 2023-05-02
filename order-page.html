@@ -89,18 +89,29 @@
                 .then(response => response.json())
                 .then(data => {
                     console.log(data.data);
+                    const urunler = document.querySelector(".urunler");
+
                     for (let i = 0; i < data.data.length; i++) {
-                        let urun = document.createElement("div");
+                        const urun = document.createElement("div");
                         urun.className = "ürün";
                         urun.innerHTML = `
-                <h3>${data.data[i].product}</h3>
-                <p>$${data.data[i].price}</p>
-            `;
-                        document.querySelector(".urunler").appendChild(urun);
+        <h3>${data.data[i].product}</h3>
+        <p>$${data.data[i].price}</p>
+        <button class="urun-button" data-product="${data.data[i].product}" data-category="${data.data[i].category}">Ürün Detayları</button>
+      `;
+                        urunler.appendChild(urun);
                     }
+
+                    const urunButtons = document.querySelectorAll(".urun-button");
+                    urunButtons.forEach(button => {
+                        button.addEventListener("click", (event) => {
+                            const product = event.target.dataset.product;
+                            const category = event.target.dataset.category;
+                            console.log(`Tıklanan ürün: ${product}, Kategori: ${category}`);
+                        });
+                    });
                 })
                 .catch(error => console.error(error));
-
 
     </script>
 </body>
