@@ -98,7 +98,7 @@
                         urun.className = "ürün";
                         urun.innerHTML = `
         <h3>${data.data[i].product}</h3>
-        <p>$${data.data[i]._id}</p>
+        <p>$${data.data[i].price}</p>
         <button class="urun-button" data-product="${data.data[i].product}" data-category="${data.data[i].category}">Ekle</button>`;
                         urunler.appendChild(urun);
                     }
@@ -108,12 +108,37 @@
                         button.addEventListener("click", (event) => {
                             const product = event.target.dataset.product;
                             const category = event.target.dataset.category; 
-                            const id = event.target.dataset._id;
-                            console.log(`Tıklanan ürün: ${product}, Kategori: ${category}, Masa: ${masaAdi} ID: ${id}`);
+                            console.log(`Tıklanan ürün: ${product}, Kategori: ${category}, Masa: ${masaAdi}`);
                         });
                     });
                 })
                 .catch(error => console.error(error));
+
+                const secilenUrunler = document.querySelector(".seçilenler");
+                button.addEventListener("click", (event) => {
+                        const product = event.target.dataset.product;
+                        const category = event.target.dataset.category;
+                        const price = data.data.find(item => item.product === product).price;
+                        const urunHtml = `
+        <div class="seçilen-ürün">
+            <div class="product-picture">
+                <img src="coffee-2439981.jpg" alt="${product}">
+            </div>
+            <div class="product-text">
+                <div class="product-name">
+                    <h2>${product}</h2>
+                </div>
+                <div class="product-info">
+                    <span>${price}$</span>
+                    <div class="product-buton">
+                        <button>+</button><button>-</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+                        secilenUrunler.innerHTML += urunHtml;
+                    });
 
 
     </script>
