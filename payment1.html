@@ -74,13 +74,15 @@
                     .then(response => response.json())
                     .then(data => {
                         console.log(data.data[0]);
+                        console.log(data.data[0].orders);
+                        console.log(data.data[0].orders.length);
                         let urunler = document.getElementById("urunler")
                         for (let index = 0; index < data.data[0].orders.length; index++) {
                             fetch(`https://caffinity.herokuapp.com/api/v1/orders/getOrder?orderId=${data.data.orders[index]}`)
                                 .then(response => response.json())
                                 .then(data => {
-                                    console.log(data.data.items);
-                                    for (let r of data.data.items) {
+                                    console.log(data.data[0].items);
+                                    for (let r of data.data[0].items) {
                                         urunler += ` <div class="ürün">
                                                         <h3>${r.product} :</h3>
                                                         <p>${r.quantity}</p>
