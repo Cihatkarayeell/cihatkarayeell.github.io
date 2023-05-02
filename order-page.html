@@ -85,53 +85,53 @@
         </div>
     </div>
     <script>
-        let data;
-        fetch('https://caffinity.herokuapp.com/api/v1/items/getItems')
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data.data);
-                    const urunler = document.querySelector(".urunler");
-                    const masaAdi = document.getElementById("masa-adi").textContent;
+       fetch('https://caffinity.herokuapp.com/api/v1/items/getItems')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.data);
+                const urunler = document.querySelector(".urunler");
+                const secilenUrunler = document.querySelector(".seçilenler");
+                const masaAdi = document.getElementById("masa-adi").textContent;
 
-                    for (let i = 0; i < data.data.length; i++) {
-                        const urun = document.createElement("div");
-                        urun.className = "ürün";
-                        urun.innerHTML = `
-                        <h3>${data.data[i].product}</h3>
-                        <p>$${data.data[i].price}</p>
-                        <button class="urun-button" data-product="${data.data[i].product}" data-category="${data.data[i].category}">Ekle</button>`;
-                        urunler.appendChild(urun);
-                    }
-                    const secilenUrunler = document.querySelector(".seçilenler");
-                    const urunButtons = document.querySelectorAll(".urun-button");
-                    urunButtons.forEach((button) => {
-                        button.addEventListener("click", (event) => {
-                            const product = event.target.dataset.product;
-                            const category = event.target.dataset.category;
-                            const price = data.find((item) => item.product === product).price;
-                            const urunHtml = `
-            <div class="seçilen-ürün">
-                <div class="product-picture">
-                    <img src="coffee-2439981.jpg" alt="${product}">
-                </div>
-                <div class="product-text">
-                    <div class="product-name">
-                        <h2>${product}</h2>
-                    </div>
-                    <div class="product-info">
-                        <span>${price}$</span>
-                        <div class="product-buton">
-                            <button>+</button><button>-</button>
+                for (let i = 0; i < data.data.length; i++) {
+                    const urun = document.createElement("div");
+                    urun.className = "ürün";
+                    urun.innerHTML = `
+                <h3>${data.data[i].product}</h3>
+                <p>$${data.data[i].price}</p>
+                <button class="urun-button" data-product="${data.data[i].product}" data-category="${data.data[i].category}">Ekle</button>`;
+                    urunler.appendChild(urun);
+                }
+
+                const urunButtons = document.querySelectorAll(".urun-button");
+                urunButtons.forEach(button => {
+                    button.addEventListener("click", (event) => {
+                        const product = event.target.dataset.product;
+                        const category = event.target.dataset.category;
+                        const price = data.data.find(item => item.product === product).price;
+                        const urunHtml = `
+                    <div class="seçilen-ürün">
+                        <div class="product-picture">
+                            <img src="coffee-2439981.jpg" alt="${product}">
+                        </div>
+                        <div class="product-text">
+                            <div class="product-name">
+                                <h2>${product}</h2>
+                            </div>
+                            <div class="product-info">
+                                <span>${price}$</span>
+                                <div class="product-buton">
+                                    <button>+</button><button>-</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-          `;
-                            secilenUrunler.innerHTML += urunHtml;
-                        });
+                `;
+                        secilenUrunler.innerHTML += urunHtml;
                     });
-                })
-            .catch((error) => console.error(error));
+                });
+            })
+            .catch(error => console.error(error));
 
     </script>
 </body>
