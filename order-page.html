@@ -89,7 +89,7 @@
                                 const orderId = orders[i];
                                 fetch(`https://caffinity.herokuapp.com/api/v1/orders/getOrder?orderId=${orderId}`)
                                     .then(response => response.json())
-                                    .then(data => console.log('order id ile detay=>', data))
+                                    .then(data => console.log('order id ile detay=>', data.data.items))
                                     .catch(error => console.error(error));
                             }
                         } else {

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        table {
+            border-collapse: collapse;
+            margin: 20px;
+        }
+
+            th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+            input[type=number] {
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+
+            span {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+        const firstNumberInput = document.getElementById('firstNumber');
+            const secondNumberInput = document.getElementById('secondNumber');
+            const totalOutput = document.getElementById('total');
+            const productOutput = document.getElementById('product');
+
+            function calculate() {
+                const firstNumber = Number(firstNumberInput.value);
+                const secondNumber = Number(secondNumberInput.value);
+
+                const total = firstNumber + secondNumber;
+                const product = firstNumber * secondNumber;
+
+                totalOutput.textContent = total;
+                productOutput.textContent = product;
+            }
+
+            firstNumberInput.addEventListener('input', calculate);
+            secondNumberInput.addEventListener('input', calculate);
+
+    </script>
+    <table>
+        <tr>
+            <th>İlk sayı</th>
+            <td><input type="number" id="firstNumber"></td>
+        </tr>
+        <tr>
+            <th>İkinci sayı</th>
+            <td><input type="number" id="secondNumber"></td>
+        </tr>
+        <tr>
+            <th>Toplam</th>
+            <td><span id="total"></span></td>
+        </tr>
+        <tr>
+            <th>Çarpım</th>
+            <td><span id="product"></span></td>
+        </tr>
+    </table>
+
+    
+</body>
+</html>
