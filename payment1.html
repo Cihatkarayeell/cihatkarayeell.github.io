@@ -49,7 +49,7 @@
                     <hr />
                     <div class="price">
                         <p>Sipariş Bedeli:</p>
-                        <p>$49.99</p>
+                        <p id="total_price">$49.99</p>
                     </div>
                     <br />
                     <hr />
@@ -80,12 +80,15 @@
                                 .then(response => response.json())
                                 .then(data => {
                                     console.log(data);
-                                    for (let r of data.data[0].items) {
-                                        urunler += ` <div class="ürün">
-                                                        <h3>${r.product} :</h3>
-                                                        <p>${r.quantity}</p>
-                                                        <p>${r.price}</p>
-                                                    </div>`
+
+                                    for (let i = 0; i < data.data.items; i++) {
+                                        const urun = document.createElement("div");
+                                        urun.className = "ürün";
+                                        urun.innerHTML = `
+                                        <h3>${data.data.items[i].product}</h3>
+                                        <p>$${data.data.items[i].quantity}</p>
+                                        <p>$${data.data.items[i].price}</p>`;
+                                        urunler.appendChild(urun);
                                     }
                                 })
                         }
