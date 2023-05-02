@@ -11,7 +11,7 @@
     <main class="container">
         <div class="main">
             <section class="shipping_address">
-                <h2 class="ship_head">Shipping Address</h2>
+                <h2 class="ship_head" id="ship_head">Shipping Address</h2>
                 <div class="addresses">
                     <form action="">
                         <input type="radio" name="button"  id="button1" checked>
@@ -64,11 +64,11 @@
         </div> 
     </main>
     <script>
-            let selectedMasa = localStorage.getItem("selectedMasa");
-            const masaAdi = document.getElementsByClassName("ship_head")
-            if (selectedMasa) {
-                masaAdi.textContent = `${selectedMasa}`;
-            }
+             const selectedMasa = localStorage.getItem("selectedMasa");
+             const masaAdi = document.getElementById("ship_head");
+                if (selectedMasa) {
+                    masaAdi.textContent = `${selectedMasa}`;
+                }
     </script>
 </body>
 </html>
