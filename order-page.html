@@ -89,9 +89,10 @@
                     urunler.appendChild(urun);
                 }
                 const urunButtons = document.querySelectorAll(".urun-button");
+                const items = [];
                 urunButtons.forEach(button => {
                     button.addEventListener("click", (event) => {
-                        const items = [];
+                        
                         const product = event.target.dataset.product;
                         const category = event.target.dataset.category;
                         const price = data.data.find(item => item.product === product).price;
