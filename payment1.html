@@ -49,16 +49,36 @@
                     </div>
                 </div>
                 
-                <button class="review_btn">Ödeme Al ve Kapat</button>
+                <button class="review_btn" id="payment-button">Ödeme Al ve Kapat</button>
             </section>
         </div> 
     </main>
     <script>
-             const selectedMasa = localStorage.getItem("selectedMasa");
-             const masaAdi = document.getElementById("ship_head");
+            const selectedMasa = localStorage.getItem("selectedMasa");
+            const masaAdi = document.getElementById("ship_head");
                 if (selectedMasa && masaAdi) {
                     masaAdi.textContent = selectedMasa;
                 }
+            const paymentButton = document.querySelector("#payment-button");
+            paymentButton.addEventListener("click", (event) => {
+                    fetch(`https://caffinity.herokuapp.com/api/v1/tables/gotPayment?tableName=${selectedMasa}`, {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    })
+                        .then(response => {
+                            if (response.ok) {
+                                window.location.href = 'https://cihatkarayeell.github.io/masa'
+                            } else {
+                                throw new Error("İstek başarısız.");
+                            }
+                        })
+                        .catch(error => {
+                            console.error(error);
+                            alert("İstek başarısız oldu.");
+                        });
+                })
             window.addEventListener("load", (event) => {
                 fetch(`https://caffinity.herokuapp.com/api/v1/tables/getTable?tableName=${selectedMasa}`)
                     .then(response => response.json())
