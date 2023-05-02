@@ -116,21 +116,19 @@
             .catch(error => console.error(error));
 
             const kaydetButton = document.querySelector('button#kaydet');
-            const odemeButton = document.querySelector('button#odeme-al');
-            const sagSutun = document.querySelector('div.sag-sutun');
-            const selectedProducts = document.querySelectorAll('div.seçilen-ürün');
-            const tableName = masaAdi;
+                const selectedProducts = document.querySelectorAll('div.seçilen-ürün');
 
-            kaydetButton.addEventListener('click', () => {
+                kaydetButton.addEventListener('click', () => {
                     const items = [];
                     selectedProducts.forEach((product) => {
                         const name = product.querySelector('h2').textContent;
                         const price = product.querySelector('span').textContent;
-                        items.push({ product: name, price: price, quentity: 1 });
+                        items.push({ product: name, price: price, quantity: 1 });
                     });
 
                     console.log(items); // items dizisini konsolda görebilirsiniz
                 });
+
 
     </script>
 </body>
