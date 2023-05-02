@@ -72,15 +72,15 @@
        fetch('https://caffinity.herokuapp.com/api/v1/items/getItems')
             .then(response => response.json())
             .then(data => {
-                fetch(`https://caffinity.herokuapp.com/api/v1/tables/getTable?tableName=${masaAdi}`)
-                    .then(response => response.json())
-                    .then(data => console.log(data))
-                    .catch(error => console.error(error));
                 console.log(data.data);
                 console.log(`https://caffinity.herokuapp.com/api/v1/tables/getTable?tableName=${masaAdi}`);
                 const urunler = document.querySelector(".urunler");
                 const secilenUrunler = document.querySelector(".seçilenler");
                 const masaAdi = document.getElementById("masa-adi").textContent;
+                fetch(`https://caffinity.herokuapp.com/api/v1/tables/getTable?tableName=${masaAdi}`)
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.error(error));
 
                 for (let i = 0; i < data.data.length; i++) {
                     const urun = document.createElement("div");
