@@ -55,7 +55,7 @@
                     <hr />
                     <div class="total_price">
                         <p class="dark">Total:</p>
-                        <p class="dark">$49.99</p>
+                        <p class="dark" id="total_price">$49.99</p>
                     </div>
                 </div>
                 
@@ -73,15 +73,13 @@
                 fetch(`https://caffinity.herokuapp.com/api/v1/tables/getTable?tableName=${selectedMasa}`)
                     .then(response => response.json())
                     .then(data => {
-                        console.log(data.data[0]);
-                        console.log(data.data[0].orders);
-                        console.log(data.data[0].orders.length);
                         let urunler = document.getElementById("urunler")
+                        const total_price = document.getElementById("total_price").textContent = data.data[0].totalPrice;
                         for (let index = 0; index < data.data[0].orders.length; index++) {
                             fetch(`https://caffinity.herokuapp.com/api/v1/orders/getOrder?orderId=${data.data[0].orders[index]}`)
                                 .then(response => response.json())
                                 .then(data => {
-                                    console.log(data.data[0].items);
+                                    console.log(data);
                                     for (let r of data.data[0].items) {
                                         urunler += ` <div class="ürün">
                                                         <h3>${r.product} :</h3>
