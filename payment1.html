@@ -64,10 +64,8 @@
         </div> 
     </main>
     <script>
-            let url = new URL(`https://cihatkarayeell.github.io/payment1?masaAdi=${masaAdi}`);
-            let params = new URLSearchParams(url.search())
-            console.log(params.get('masaAdi'));
-            document.querySelector('.ship_head').innerHTML = params.get('masaAdi');
+            let x = localStorage.getItem("selectedMasa");
+            console.log(x);
     </script>
 </body>
 </html>
