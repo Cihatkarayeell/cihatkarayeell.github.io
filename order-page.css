@@ -263,7 +263,9 @@ header{
 
 .seçilen-ürün {
     width: 100%;
-    height: 100px;
+    height: max-content;
+    padding-top: 5px;
+    padding-bottom: 5px;
     overflow: visible;
     display: flex;
     flex-direction: row;
