@@ -54,7 +54,7 @@
                 </a>
             </li> -->
             <li>
-                <a href="#" class="logout">
+                <a href="#" class="logout" id="logout-btn">
                     <i class='bx bxs-log-out-circle'></i>
                     <span class="text">Çıkış</span>
                 </a>
@@ -318,5 +318,11 @@
         </main>
         <!-- MAIN -->
     </section>
+    <script>
+        const logOutButton = document.querySelector("#logout-btn");
+        logOutButton.addEventListener("click", (event) => {
+            window.location.href = 'https://cihatkarayeell.github.io/index'
+        })
+    </script>
 </body>
 </html>

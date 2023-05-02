@@ -31,7 +31,7 @@
 
         <div class="alt-bolum">
             <div class="sol-sutun">
-                <div class="left-menu">
+                <div class="left-menu" id="home-button">
                     <span class="material-symbols-outlined">home</span>
                 </div>
             </div>
@@ -137,6 +137,10 @@
                 
             })
             .catch(error => console.error(error));
+        const homeButton = document.querySelector("#home-button");
+            homeButton.addEventListener("click", (event) => {
+                window.location.href = 'https://cihatkarayeell.github.io/dashboard'
+            })
     </script>
 </body>
 </html>
