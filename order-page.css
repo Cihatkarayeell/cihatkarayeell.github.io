@@ -364,6 +364,7 @@ header{
     font-size: large;
     cursor:pointer;
     transition: 500ms;
+    margin-bottom: 5px;
 }
 .fiyat button:hover{
     transform: translateY(5px);
