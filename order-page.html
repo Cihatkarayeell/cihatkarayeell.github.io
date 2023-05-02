@@ -16,19 +16,17 @@
             <div class="logo">
                 <span>Caffinity</span>
             </div>
-        
             <div class="header-text">
                 <h2 id="masa-adi"></h2>
                 <p>Dilediğin her şey burada</p>
             </div>
         </header>
-
         <script>
-            const selectedMasa = localStorage.getItem("selectedMasa"); // kaydedilmiş masa numarasını al
+            const selectedMasa = localStorage.getItem("selectedMasa");
             const masaAdi = document.getElementById("masa-adi");
             if (selectedMasa) {
-                masaAdi.textContent = `${selectedMasa}`; // seçilen masanın numarasını h2 etiketi içinde göster
-                localStorage.removeItem("selectedMasa"); // kaydedilen masa numarasını sil
+                masaAdi.textContent = `${selectedMasa}`;
+                localStorage.removeItem("selectedMasa");
             }
         </script>
 
@@ -47,7 +45,6 @@
                         <button>Yemekler</button>
                         <button>Kahveler</button>
                     </div>
-
                 <div class="orta-urun">
                     <div class="urunler">
                         
@@ -62,7 +59,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="sag-sutun">
                 <div class="current-order">
                     <h2>Current Order</h2>
@@ -85,7 +81,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="fiyat">
                     <div>
                         <span>Tutar:</span>
@@ -95,13 +90,42 @@
                         ÖDEME AL
                     </button>
                 </div>
-                
             </div>
         </div>
-        
     </div>
-    
-    
-    
+    <script>
+        fetch("https://caffinity.herokuapp.com/api/v1/items/products")
+                .then(response => response.json())
+                .then(data => {
+                    // Gelen verileri al
+                    const products = data.products;
+
+                    // Urunler div'ini al
+                    const urunlerDiv = document.querySelector(".urunler");
+
+                    // Urunler div'ini temizle
+                    urunlerDiv.innerHTML = "";
+
+                    // Her bir ürün için bir div oluştur
+                    products.forEach(product => {
+                        const urunDiv = document.createElement("div");
+                        urunDiv.classList.add("ürün");
+
+                        // Ürün adını içeren bir başlık ekle
+                        const urunBaslik = document.createElement("h3");
+                        urunBaslik.textContent = product.product;
+                        urunDiv.appendChild(urunBaslik);
+
+                        // Ürün fiyatını içeren bir paragraf ekle
+                        const urunFiyat = document.createElement("p");
+                        urunFiyat.textContent = `$${product.price.toFixed(2)}`;
+                        urunDiv.appendChild(urunFiyat);
+
+                        // Ürünleri urunlerDiv'e ekle
+                        urunlerDiv.appendChild(urunDiv);
+                    });
+                })
+                .catch(error => console.error(error));
+    </script>
 </body>
 </html>
