@@ -64,9 +64,11 @@
         </div> 
     </main>
     <script>
-            let x = localStorage.getItem("selectedMasa");
-            console.log(x);
-            document.querySelector(".ship_head").innerHTML = x;
+            let selectedMasa = localStorage.getItem("selectedMasa");
+            const masaAdi = document.getElementsByClassName("ship_head")
+            if (selectedMasa) {
+                masaAdi.textContent = `${selectedMasa}`;
+            }
     </script>
 </body>
 </html>
