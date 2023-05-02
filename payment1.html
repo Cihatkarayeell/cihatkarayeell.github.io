@@ -69,6 +69,14 @@
                 if (selectedMasa && masaAdi) {
                     masaAdi.textContent = selectedMasa;
                 }
+            window.addEventListener("load", (event) => {
+                fetch(`https://caffinity.herokuapp.com/api/v1/tables/getTable?tableName=${selectedMasa}`)
+                    .then(response => {
+                        const resJson = response.json();
+                        const data = resJson.data;
+                        console.log('data=>', data);
+                    })
+            })
 
     </script>
 </body>
