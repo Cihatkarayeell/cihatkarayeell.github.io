@@ -78,13 +78,7 @@
                 const urunler = document.querySelector(".urunler");
                 const secilenUrunler = document.querySelector(".seçilenler");
                 const masaAdi = document.getElementById("masa-adi").textContent;
-                const urunButtons = document.querySelectorAll(".urun-button");
-                urunButtons.forEach(button => {
-                    button.style.backgroundColor = "red";
-                    button.style.color = "white";
-                    // istediğiniz diğer stilleri burada ekleyebilirsiniz
-                });
-
+                
 
                 for (let i = 0; i < data.data.length; i++) {
                     const urun = document.createElement("div");
