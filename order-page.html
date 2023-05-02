@@ -99,7 +99,7 @@
                         urun.innerHTML = `
         <h3>${data.data[i].product}</h3>
         <p>$${data.data[i].price}</p>
-        <button class="urun-button" data-product="${data.data[i].product}" data-category="${data.data[i].category}">Ekle</button>`;
+        <button class="urun-button" data-product="${data.data[i].product}" data-category="${data.data[i].category}" data-id="${data.data[i]._id}>Ekle</button>`;
                         urunler.appendChild(urun);
                     }
 
@@ -108,8 +108,8 @@
                         button.addEventListener("click", (event) => {
                             const product = event.target.dataset.product;
                             const category = event.target.dataset.category; 
-                            const productId = event.target.dataset._id;
-                            console.log(`Tıklanan ürün: ${product}, Kategori: ${category}, Masa: ${masaAdi} id: ${productId}`);
+                            const id = event.target.dataset._id;
+                            console.log(`Tıklanan ürün: ${product}, Kategori: ${category}, Masa: ${masaAdi} ID: ${id}`);
                         });
                     });
                 })
