@@ -34,11 +34,6 @@
                             <p>Ürün Fiyatı</p>
                         </div>
                         <div class="urunler" id="urunler">
-                            <div class="ürün">
-                                <h3>Çay :</h3>
-                                <p>8</p>
-                                <p>$12.98</p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -46,11 +41,6 @@
             <section class="order_summary">
                 <h2 class="order_head">Order Summary</h2>
                 <div class="order_price">
-                    <hr />
-                    <div class="price">
-                        <p>Sipariş Bedeli:</p>
-                        <p id="total_price">$49.99</p>
-                    </div>
                     <br />
                     <hr />
                     <div class="total_price">
@@ -73,7 +63,7 @@
                 fetch(`https://caffinity.herokuapp.com/api/v1/tables/getTable?tableName=${selectedMasa}`)
                     .then(response => response.json())
                     .then(data => {
-                       const urunler = document.querySelector(".urunler");
+                        let urunler = document.querySelector(".urunler");
                         const total_price = document.getElementById("total_price").textContent = data.data[0].totalPrice;
                         for (let index = 0; index < data.data[0].orders.length; index++) {
                             fetch(`https://caffinity.herokuapp.com/api/v1/orders/getOrder?orderId=${data.data[0].orders[index]}`)
@@ -81,13 +71,14 @@
                                 .then(data => {
                                     console.log(data);
                                     for (let i = 0; i < data.data.items; i++) {
-                                        console.log(data.data.items[i].product);
+                                        console.log('====>>>', data.data.items[i]);
                                         const urun = document.createElement("div");
                                         urun.className = "ürün";
                                         urun.innerHTML = `
                                         <h3>${data.data.items[i].product}</h3>
-                                        <p>$${data.data.items[i].quantity}</p>
-                                        <p>$${data.data.items[i].price}</p>`;
+                                        <p>${data.data.items[i].quantity}</p>
+                                        <p>${data.data.items[i].price}</p>`;
+                                        console.log(urun);
                                         urunler.appendChild(urun);
                                     }
                                 })
