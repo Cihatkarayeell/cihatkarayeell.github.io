@@ -65,7 +65,9 @@
                     .then(data => {
                         let urunler = document.querySelector(".urunler");
                         const total_price = document.getElementById("total_price").textContent = data.data[0].totalPrice;
+                        console.log('sajfbskjabfkjsafb');
                         for (let index = 0; index < data.data[0].orders.length; index++) {
+                            console.log(data.data[0].orders[index]);
                             fetch(`https://caffinity.herokuapp.com/api/v1/orders/getOrder?orderId=${data.data[0].orders[index]}`)
                                 .then(response => response.json())
                                 .then(data => {
