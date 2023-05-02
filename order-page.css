@@ -247,7 +247,7 @@ header{
     width: auto;
     height: 60%;
     background-color:transparent;
-    border-radius:5px;
+    border-radius:6px; 
     color:white;
     font-family: 'poppins',sans-serif;
     font-size: small;
