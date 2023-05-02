@@ -73,7 +73,7 @@
                 fetch(`https://caffinity.herokuapp.com/api/v1/tables/getTable?tableName=${selectedMasa}`)
                     .then(response => response.json())
                     .then(data => {
-                        console.log(data.data);
+                        console.log(data.data[0]);
                         let urunler = document.getElementById("urunler")
                         for (let index = 0; index < data.data[0].orders.length; index++) {
                             fetch(`https://caffinity.herokuapp.com/api/v1/orders/getOrder?orderId=${data.data.orders[index]}`)
