@@ -80,7 +80,7 @@
                     .then(response => response.json())
                     .then(data => {
                         const orders = data.data[0].orders;
-
+                        console.log(orders);
                         if (orders.length > 0) {
                             console.log(orders);
                         } else {
