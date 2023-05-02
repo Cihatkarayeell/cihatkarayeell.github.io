@@ -346,6 +346,10 @@ header{
     padding:10px;
     border-bottom:1px solid whitesmoke;
 }
+.fiyat li{
+    display: flex;
+    flex-direction: column ;
+}
 .fiyat button{
     background-color: rgb(156, 15, 43);
     border-radius: 5px;
