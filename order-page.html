@@ -97,24 +97,18 @@
         fetch('https://caffinity.herokuapp.com/api/v1/items/getItems')
                 .then(response => response.json())
                 .then(data => {
-                    const urunlerDiv = document.querySelector('.urunler');
-
-                    data.forEach(item => {
-                        const urunDiv = document.createElement('div');
-                        urunDiv.classList.add('ürün');
-
-                        const urunBaslik = document.createElement('h3');
-                        urunBaslik.textContent = item.product;
-
-                        const urunFiyat = document.createElement('p');
-                        urunFiyat.textContent = '$' + item.price;
-
-                        urunDiv.appendChild(urunBaslik);
-                        urunDiv.appendChild(urunFiyat);
-                        urunlerDiv.appendChild(urunDiv);
-                    });
+                    for (let i = 0; i < data.length; i++) {
+                        let urun = document.createElement("div");
+                        urun.className = "ürün";
+                        urun.innerHTML = `
+                <h3>${data[i].product}</h3>
+                <p>$${data[i].price}</p>
+            `;
+                        document.querySelector(".urunler").appendChild(urun);
+                    }
                 })
                 .catch(error => console.error(error));
+
 
     </script>
 </body>
