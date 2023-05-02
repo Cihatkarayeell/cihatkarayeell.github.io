@@ -94,37 +94,9 @@
         </div>
     </div>
     <script>
-        fetch("https://caffinity.herokuapp.com/api/v1/items/getItems")
+        fetch('https://caffinity.herokuapp.com/api/v1/items/getItems')
                 .then(response => response.json())
-                .then(data => {
-                    // Gelen verileri al
-                    const products = data.products;
-                    console.log(products);
-                    // Urunler div'ini al
-                    const urunlerDiv = document.querySelector(".urunler");
-
-                    // Urunler div'ini temizle
-                    urunlerDiv.innerHTML = "";
-
-                    // Her bir ürün için bir div oluştur
-                    // products.forEach(product => {
-                    //     const urunDiv = document.createElement("div");
-                    //     urunDiv.classList.add("ürün");
-
-                    //     // Ürün adını içeren bir başlık ekle
-                    //     const urunBaslik = document.createElement("h3");
-                    //     urunBaslik.textContent = product.product;
-                    //     urunDiv.appendChild(urunBaslik);
-
-                    //     // Ürün fiyatını içeren bir paragraf ekle
-                    //     const urunFiyat = document.createElement("p");
-                    //     urunFiyat.textContent = `$${product.price.toFixed(2)}`;
-                    //     urunDiv.appendChild(urunFiyat);
-
-                    //     // Ürünleri urunlerDiv'e ekle
-                    //     urunlerDiv.appendChild(urunDiv);
-                    // });
-                })
+                .then(data => console.log(data))
                 .catch(error => console.error(error));
     </script>
 </body>
