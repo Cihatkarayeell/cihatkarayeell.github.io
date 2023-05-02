@@ -118,7 +118,7 @@
             .catch(error => console.error(error));
 
 
-            fetch(`https://caffinity.herokuapp.com/api/v1/tables/getTable?tableName=${selectedMasa}`)
+            fetch(`https://caffinity.herokuapp.com/api/v1/tables/getTable?tableName=${masaAdi}`)
                     .then(response => response.json())
                     .then(data => console.log(data))
                     .catch(error => console.error(error));
