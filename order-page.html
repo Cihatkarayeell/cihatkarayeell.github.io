@@ -73,6 +73,7 @@
             .then(response => response.json())
             .then(data => {
                 console.log(data.data);
+                console.log(`https://caffinity.herokuapp.com/api/v1/tables/getTable?tableName=${masaAdi}`);
                 const urunler = document.querySelector(".urunler");
                 const secilenUrunler = document.querySelector(".seçilenler");
                 const masaAdi = document.getElementById("masa-adi").textContent;
@@ -114,7 +115,6 @@
                         secilenUrunler.innerHTML += urunHtml;
                     });
                 });
-                console.log(`https://caffinity.herokuapp.com/api/v1/tables/getTable?tableName=${masaAdi}`);
             })
             .catch(error => console.error(error));
 
