@@ -98,7 +98,7 @@
                         urun.className = "ürün";
                         urun.innerHTML = `
         <h3>${data.data[i].product}</h3>
-        <p>$${data.data[i].price}</p>
+        <p>$${data.data[i]._id}</p>
         <button class="urun-button" data-product="${data.data[i].product}" data-category="${data.data[i].category}">Ekle</button>`;
                         urunler.appendChild(urun);
                     }
