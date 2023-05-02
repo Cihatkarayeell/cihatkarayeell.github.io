@@ -92,28 +92,39 @@
                 const items = [];
                 urunButtons.forEach(button => {
                     button.addEventListener("click", (event) => {
-                        
                         const product = event.target.dataset.product;
                         const category = event.target.dataset.category;
                         const price = data.data.find(item => item.product === product).price;
-                        const urunHtml = `
-                    <div class="seçilen-ürün">
-                        <div class="product-text">
-                            <div class="product-name">
-                                <h2>${product}</h2>
-                            </div>
-                            <div class="product-info">
-                                <span>${price}$</span>
-                                <div class="product-buton">
-                                    
-                                </div>
-                            </div>
-                           </div>
-                    </div>
-                `;
+                        const urunHtml = `<div class="seçilen-ürün"><div class="product-text"><div class="product-name"><h2>${product}</h2></div><div class="product-info"><span>${price}$</span><div class="product-buton"></div></div></div></div>`;
                         secilenUrunler.innerHTML += urunHtml ;
                         items.push({ product: product, price: price, quantity: 1 });
                         console.log(items)
+                    });
+                    const kaydetButton = document.querySelector("#kaydet-button");
+                    kaydetButton.addEventListener("click", (event) => {
+                        // POST isteği gönder
+                        fetch("https://caffinity.herokuapp.com/api/v1/orders/createOrder", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                tableName: masaAdi,
+                                items: items
+                            })
+                        })
+                            .then(response => {
+                                if (response.ok) {
+                                    alert("Sipariş kaydedildi.");
+                                    window.location.reload();
+                                } else {
+                                    throw new Error("İstek başarısız.");
+                                }
+                            })
+                            .catch(error => {
+                                console.error(error);
+                                alert("İstek başarısız oldu.");
+                            });
                     });
                 });
             })
