@@ -33,7 +33,7 @@
                             <p>Ürün Adedi</p>
                             <p>Ürün Fiyatı</p>
                         </div>
-                        <div class="urunler">
+                        <div class="urunler" id="urunler">
                             <div class="ürün">
                                 <h3>Çay :</h3>
                                 <p>8</p>
@@ -71,10 +71,24 @@
                 }
             window.addEventListener("load", (event) => {
                 fetch(`https://caffinity.herokuapp.com/api/v1/tables/getTable?tableName=${selectedMasa}`)
-                    .then(response => {
-                        const resJson = response.json();
-                        const data = resJson.data;
-                        console.log('data=>', data);
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data.data);
+                        let urunler = document.getElementById("urunler")
+                        for (let index = 0; index < data.data.orders.length; index++) {
+                            fetch(`https://caffinity.herokuapp.com/api/v1/orders/getOrder?orderId=${data.data.orders[index]}`)
+                                .then(response => response.json())
+                                .then(data => {
+                                    console.log(data.data.items);
+                                    for (let r of data.data.items) {
+                                        urunler += ` <div class="ürün">
+                                                        <h3>${r.product} :</h3>
+                                                        <p>${r.quantity}</p>
+                                                        <p>${r.price}</p>
+                                                    </div>`
+                                    }
+                                })
+                        }
                     })
             })
 
