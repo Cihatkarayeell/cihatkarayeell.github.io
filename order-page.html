@@ -114,10 +114,11 @@
                         secilenUrunler.innerHTML += urunHtml;
                     });
                 });
+                console.log(`https://caffinity.herokuapp.com/api/v1/tables/getTable?tableName=${masaAdi}`);
             })
             .catch(error => console.error(error));
 
-            console.log(`https://caffinity.herokuapp.com/api/v1/tables/getTable?tableName=${masaAdi}`);
+            
             fetch(`https://caffinity.herokuapp.com/api/v1/tables/getTable?tableName=${masaAdi}`)
                     .then(response => response.json())
                     .then(data => console.log(data))
