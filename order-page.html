@@ -26,7 +26,7 @@
             const masaAdi = document.getElementById("masa-adi");
             if (selectedMasa) {
                 masaAdi.textContent = `${selectedMasa}`;
-                // localStorage.removeItem("selectedMasa");
+                localStorage.removeItem("selectedMasa");
             }
         </script>
 
@@ -91,6 +91,8 @@
                     console.log(data.data);
                     const urunler = document.querySelector(".urunler");
 
+                    const masaAdi = document.getElementById("masa-adi").textContent;
+
                     for (let i = 0; i < data.data.length; i++) {
                         const urun = document.createElement("div");
                         urun.className = "ürün";
@@ -107,11 +109,12 @@
                         button.addEventListener("click", (event) => {
                             const product = event.target.dataset.product;
                             const category = event.target.dataset.category;
-                            console.log(`Tıklanan ürün: ${product}, Kategori: ${category}, Masa: ${selectedMasa}`);
+                            console.log(`Tıklanan ürün: ${product}, Kategori: ${category}, Masa: ${masaAdi}`);
                         });
                     });
                 })
                 .catch(error => console.error(error));
+
 
     </script>
 </body>
