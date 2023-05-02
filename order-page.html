@@ -97,13 +97,13 @@
         fetch('https://caffinity.herokuapp.com/api/v1/items/getItems')
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data);
-                    for (let i = 0; i < data.length; i++) {
+                    console.log(data.data);
+                    for (let i = 0; i < data.data.length; i++) {
                         let urun = document.createElement("div");
                         urun.className = "ürün";
                         urun.innerHTML = `
-                <h3>${data[i].product}</h3>
-                <p>$${data[i].price}</p>
+                <h3>${data.data[i].product}</h3>
+                <p>$${data.data[i].price}</p>
             `;
                         document.querySelector(".urunler").appendChild(urun);
                     }
