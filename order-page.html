@@ -91,6 +91,7 @@
                 const urunButtons = document.querySelectorAll(".urun-button");
                 urunButtons.forEach(button => {
                     button.addEventListener("click", (event) => {
+                        const items = [];
                         const product = event.target.dataset.product;
                         const category = event.target.dataset.category;
                         const price = data.data.find(item => item.product === product).price;
@@ -110,23 +111,12 @@
                     </div>
                 `;
                         secilenUrunler.innerHTML += urunHtml ;
+                        items.push({ product: name, price: price, quantity: 1 });
+                        console.log(items)
                     });
                 });
             })
             .catch(error => console.error(error));
-
-            kaydetButton.addEventListener('click', () => {
-                    const selectedProducts = document.querySelectorAll('.seçilen-ürün');
-                    const items = [];
-                    selectedProducts.forEach((product) => {
-                        const name = product.querySelector('h2').textContent;
-                        const price = product.querySelector('span').textContent;
-                        items.push({ product: name, price: price, quantity: 1 });
-                    });
-                    console.log(items);
-                });
-
-
     </script>
 </body>
 </html>
