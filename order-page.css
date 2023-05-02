@@ -168,6 +168,11 @@ header{
     height: 100%;
     
 }
+.urun-button{
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: transparent;
+}
 .urunler{
     display: flex;
     flex-direction: row;
