@@ -67,11 +67,11 @@
                         const total_price = document.getElementById("total_price").textContent = data.data[0].totalPrice;
                         console.log('sajfbskjabfkjsafb');
                         for (let index = 0; index < data.data[0].orders.length; index++) {
-                            console.log(data.data[0].orders[index]);
-                            fetch(`https://caffinity.herokuapp.com/api/v1/orders/getOrder?orderId=${data.data[0].orders[index]}`)
+                            console.log('id====>>>>>', data.data[0].orders[index]);
+                            fetch('https://caffinity.herokuapp.com/api/v1/orders/getOrder?orderId=' + data.data[0].orders[index])
                                 .then(response => response.json())
                                 .then(data => {
-                                    console.log(data);
+                                    console.log('2. fetch=>', data);
                                     for (let i = 0; i < data.data.items; i++) {
                                         console.log('====>>>', data.data.items[i]);
                                         const urun = document.createElement("div");
@@ -84,7 +84,10 @@
                                         urunler.appendChild(urun);
                                     }
                                 })
-                                .catch(error => console.log(error));
+                                .catch(error => {
+                                    console.error(error);
+                                    alert("İstek başarısız oldu.");
+                                });
                         }
                     })
             })
