@@ -367,7 +367,9 @@ header{
     transition: 500ms;
     margin-bottom: 5px;
 }
-
+.fiyat button:hover{
+    transform: translateY(5px);
+}
 ::-webkit-scrollbar {
     width: 10px; /* kaydırma çubuğu genişliği */
 }
