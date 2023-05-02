@@ -63,7 +63,7 @@
                     </div>
                     <li>
                         <button id="kaydet-button">KAYDET</button>
-                        <button>ÖDEME AL</button>
+                        <button  id="payment-button">ÖDEME AL</button>
                     </li>
                     
                 </div>
@@ -101,6 +101,7 @@
                         console.log(items)
                     });
                     const kaydetButton = document.querySelector("#kaydet-button");
+                    const paymentButton = document.querySelector("#payment-button");
                     kaydetButton.addEventListener("click", (event) => {
                         // POST isteği gönder
                         fetch("https://caffinity.herokuapp.com/api/v1/orders/createOrder", {
@@ -125,7 +126,14 @@
                                 alert("İstek başarısız oldu.");
                             });
                     });
+                    paymentButton.addEventListener("click", (event) => {
+                        window.location.href = `https://cihatkarayeell.github.io/payment1?masaAdi=${masaAdi}`
+                        let url = new URL(`https://cihatkarayeell.github.io/payment1?masaAdi=${masaAdi}`);
+                        let params = new URLSearchParams(url.search())
+                        console.log(params.get('masaAdi'));
+                    })
                 });
+                
             })
             .catch(error => console.error(error));
     </script>
