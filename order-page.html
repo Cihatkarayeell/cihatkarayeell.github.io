@@ -107,23 +107,23 @@
                     urunlerDiv.innerHTML = "";
 
                     // Her bir ürün için bir div oluştur
-                    products.forEach(product => {
-                        const urunDiv = document.createElement("div");
-                        urunDiv.classList.add("ürün");
+                    // products.forEach(product => {
+                    //     const urunDiv = document.createElement("div");
+                    //     urunDiv.classList.add("ürün");
 
-                        // Ürün adını içeren bir başlık ekle
-                        const urunBaslik = document.createElement("h3");
-                        urunBaslik.textContent = product.product;
-                        urunDiv.appendChild(urunBaslik);
+                    //     // Ürün adını içeren bir başlık ekle
+                    //     const urunBaslik = document.createElement("h3");
+                    //     urunBaslik.textContent = product.product;
+                    //     urunDiv.appendChild(urunBaslik);
 
-                        // Ürün fiyatını içeren bir paragraf ekle
-                        const urunFiyat = document.createElement("p");
-                        urunFiyat.textContent = `$${product.price.toFixed(2)}`;
-                        urunDiv.appendChild(urunFiyat);
+                    //     // Ürün fiyatını içeren bir paragraf ekle
+                    //     const urunFiyat = document.createElement("p");
+                    //     urunFiyat.textContent = `$${product.price.toFixed(2)}`;
+                    //     urunDiv.appendChild(urunFiyat);
 
-                        // Ürünleri urunlerDiv'e ekle
-                        urunlerDiv.appendChild(urunDiv);
-                    });
+                    //     // Ürünleri urunlerDiv'e ekle
+                    //     urunlerDiv.appendChild(urunDiv);
+                    // });
                 })
                 .catch(error => console.error(error));
     </script>
