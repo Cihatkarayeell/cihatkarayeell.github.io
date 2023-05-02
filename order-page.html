@@ -26,7 +26,6 @@
             const masaAdi = document.getElementById("masa-adi");
             if (selectedMasa) {
                 masaAdi.textContent = `${selectedMasa}`;
-                localStorage.removeItem("selectedMasa");
             }
         </script>
 
@@ -117,6 +116,12 @@
                 });
             })
             .catch(error => console.error(error));
+
+
+            fetch(`https://caffinity.herokuapp.com/api/v1/tables/getTable?tableName=${selectedMasa}`)
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.error(error));
 
     </script>
 </body>
