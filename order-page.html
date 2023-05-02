@@ -82,12 +82,12 @@
                     .then(data => {
                         const orders = data.data[0].orders;
                         if (orders.length > 0) {
-                            console.log(orders);
+                            console.log('order id=>', orders);
                             for (let i = 0; i < orders.length; i++) {
                                 const orderId = orders[i];
                                 fetch(`https://caffinity.herokuapp.com/api/v1/orders/getOrder?orderId=${orderId}`)
                                     .then(response => response.json())
-                                    .then(data => console.log(data))
+                                    .then(data => console.log('order id ile detay=>', data))
                                     .catch(error => console.error(error));
                             }
                         } else {
@@ -125,7 +125,7 @@
                             <div class="product-info">
                                 <span>${price}$</span>
                                 <div class="product-buton">
-                                    <button>+</button><button>-</button>
+                                    
                                 </div>
                             </div>
                         </div>
