@@ -282,6 +282,9 @@ header{
 .seçilen-ürün .product-text{
     width: 60%;
     margin: 5px 0;
+    display: flex;
+    flex: row;
+    justify-content: space-between;
 }
 .seçilen-ürün .product-text .product-info{
     display: flex;
